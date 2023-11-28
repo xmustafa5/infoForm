@@ -7,7 +7,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 export default function Form() {
   const refs = [
     { title: "File No.", ref: useRef(null) },
-    { title: "Gender", ref: useRef(null) },
+    { title: "Gender", ref: useRef('') },
     { title: "Full Name", ref: useRef(null) },
     { title: "Mother Name", ref: useRef(null) },
     { title: "Province No", ref: useRef(null) },
@@ -100,20 +100,20 @@ export default function Form() {
     // const Clivilized = refs[5].ref.current.checked;
     // const Countryside = refs[6].ref.current.checked;
 
-    refs.forEach((item) => {
-      if (item.ref.current) {
-        if (item.ref.current.type === "checkbox") {
-          console.log(`${item.title}: `, item.ref.current.checked);
-        } else {
-          console.log(`${item.title}: `, item.ref.current.value);
-        }
-      }
-    });
+    // refs.forEach((item) => {
+    //   if (item.ref.current) {
+    //     if (item.ref.current.type === "checkbox") {
+    //       console.log(`${item.title}: `, item.ref.current.checked);
+    //     } else {
+    //       console.log(`${item.title}: `, item.ref.current.value);
+    //     }
+    //   }
+    // });
 
-    // console.log({ file, gender,FullName,Mother,Province, Clivilized,Countryside });
+     console.log({ Option });
   };
   const [isOption, setIsOption] = useState(false);
-  const [Option, setOption] = useState(false);
+  const [Option, setOption] = useState('Choose');
 
   const handleClick = () => {
     setIsOption(prevState => !prevState);
@@ -150,15 +150,15 @@ export default function Form() {
             <div className="">
                <div className="relative text-start ">
                   <div  onClick={handleClick} class={`bg-gray-50 border   border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:border-blue-800 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500`}>
-                       Chosse
+                       {Option}
                   </div>
                   <div className='h-full  mt-2 w-30 border-2 rounded-md border-blue-700'>
                        <div className='w-full'>                              
-                      <button onClick={ setOption('')}  className='w-full hover:bg-gray-900 hover:text-white  text-gray-600 text-center border-b border-black text-[18px] '>Famel</button>
+                       <div onClick={() => setOption('Male')}  className='w-full hover:bg-gray-900 hover:text-white text-gray-600 text-center border-b border-black text-[18px]'>Male</div>
                         </div>    
          
                         <div className='w-full'>                              
-                      <button  className='w-full hover:bg-gray-900 hover:text-white  text-gray-600 text-center border-b border-black text-[18px] '>Famel</button>
+                        <div onClick={()=>setOption('Female')}  className='w-full hover:bg-gray-900 hover:text-white  text-gray-600 text-center border-b border-black text-[18px] '>Female</div>
                         </div> 
                  
         </div>
@@ -531,7 +531,7 @@ export default function Form() {
 
           
           <div className="absolute right-5 top-14 ">
-                <button type="button" className="text-white  hover:bg-gray-900 focus:outline-none focus:ring-4 bg-red-600  font-medium  text-xl px-10 py-2.5 me-2 mb-2 ">Cancel</button>
+                <button type="sumbit"  className="text-white  hover:bg-gray-900 focus:outline-none focus:ring-4 bg-red-600  font-medium  text-xl px-10 py-2.5 me-2 mb-2 ">Cancel</button>
                 
                 <button type="button" className="text-white bg-blue-400 hover:bg-gray-900 focus:outline-none focus:ring-4  focus:ring-gray-300 font-medium  text-xl px-10 py-2.5 me-2 mb-2 ">save</button>
              
