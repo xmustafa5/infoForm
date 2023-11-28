@@ -18,10 +18,44 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    scale: 0
+  }
+  100% {
+    opacity: 1;
+    scale: 1
+  }
+  
+}
+.check{
+  transition: all 0.5s ease-in-out ;
+}
+.check-1,
+.check-2,
+.check-3,
+.check-4{
+  opacity: 0;
+  scale: 0;
+
+
+}
+
+
+#check-box-1:checked ~.check-1,
+#check-box-2:checked ~.check-2,
+#check-box-3:checked ~.check-3,
+#check-box-4:checked ~.check-4 {
+  scale: 1;
+  opacity: 1;
+
+  
+}
+
+
+.option{
+  
 }
